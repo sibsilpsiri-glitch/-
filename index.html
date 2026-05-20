@@ -3,349 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>นครจันทราแดนน้ำเงิน | 蓝月城</title>
-    <!-- ใช้ Font 'Noto Sans Thai' (ไม่มีหัว) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>นครจันทราแดนน้ำเงิน - 蓝月城</title>
+    <!-- ใช้ฟอนต์ Prompt (ไม่มีหัว) จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --red-start: #b30000;
-            --red-end: #1a0000;
-            --bg-white: #fcfcfc;
-            --text-dark: #222222;
-            --border-color: #e0e0e0;
-            --gold-accent: #b8860b;
+            --primary-blue: #0A192F;
+            --secondary-blue: #112240;
+            --accent-blue: #233554;
+            --text-dark: #000000;
+            --bg-white: #FFFFFF;
+            --bg-offwhite: #F8F9FA;
+            --border-gold: #C5A059; /* สีทองหม่นเสริมความจีนโบราณ */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Noto Sans Thai', sans-serif;
+            font-family: 'Prompt', sans-serif;
         }
 
         body {
             background-color: var(--bg-white);
             color: var(--text-dark);
             line-height: 1.8;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="%23ffffff"/><path d="M0 0l100 100M100 0L0 100" stroke="%23f0f0f0" stroke-width="0.5"/></svg>');
+            font-size: 16px;
         }
 
-        /* การทำ Text Gradient แดงไล่เฉดดำ */
+        /* การไล่เฉดสีน้ำเงิน-ดำ (Blue to Black Gradient) */
         .gradient-text {
-            background: linear-gradient(135deg, var(--red-start) 0%, var(--red-end) 100%);
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--text-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
+            background-clip: text;
         }
 
         .gradient-bg {
-            background: linear-gradient(135deg, var(--red-start) 0%, var(--red-end) 100%);
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--text-dark) 100%);
+            color: var(--bg-white);
         }
 
-        /* Header Section */
+        /* ส่วนหัวของเว็บไซต์ */
         header {
-            position: relative;
-            padding: 100px 20px;
             text-align: center;
-            color: white;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, var(--red-start) 0%, var(--red-end) 100%);
-            z-index: -2;
+            padding: 4rem 1rem 2rem;
+            border-bottom: 2px solid var(--primary-blue);
+            position: relative;
         }
 
-        /* สร้างลายน้ำสไตล์จีน */
-        header::after {
-            content: "蓝月城";
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 15rem;
-            color: rgba(255, 255, 255, 0.03);
-            z-index: -1;
-            white-space: nowrap;
-            font-family: 'SimSun', serif;
-        }
-
-        h1 {
-            font-size: 3.5rem;
+        header h1 {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
         }
 
-        h1 span.cn { font-size: 2rem; font-weight: 400; margin-left: 15px; opacity: 0.9; }
-
-        .hashtag {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            color: var(--gold-accent);
-            letter-spacing: 1px;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--red-start), var(--red-end));
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        .content-box {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .content-box p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            text-indent: 2rem;
-            text-align: justify;
-        }
-
-        /* CSS City Map Graphic */
-        .map-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            gap: 10px;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fafafa;
-            border: 2px solid var(--red-end);
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .map-container::before {
-            content: "北 (อุดร)";
+        header .chinese-char {
+            font-size: 4rem;
+            opacity: 0.1;
             position: absolute;
-            top: -30px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            color: var(--red-start);
-            font-weight: bold;
+            z-index: -1;
+            letter-spacing: 20px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--accent-blue);
+        }
+
+        .hashtag {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-offwhite);
+            border: 1px solid var(--secondary-blue);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* คอนเทนเนอร์หลัก */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* ส่วนของเนื้อหาแต่ละตอน */
+        .section-title {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "✦";
+            margin-right: 15px;
+            color: var(--secondary-blue);
+            font-size: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--secondary-blue), transparent);
+            margin-left: 15px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            color: #333;
+        }
+
+        /* ตารางและกล่องข้อมูล */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background-color: var(--bg-offwhite);
+            padding: 2rem;
+            border-left: 4px solid var(--secondary-blue);
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(10, 25, 47, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 0.5rem;
+        }
+
+        /* กราฟิกจำลองผังเมือง (CSS Grid City Map) */
+        .city-map-container {
+            background-color: var(--bg-offwhite);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-top: 2rem;
+        }
+
+        .city-map {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .map-zone {
-            aspect-ratio: 1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 600;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            background: white;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .map-zone:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(179, 0, 0, 0.2);
-            border-color: var(--red-start);
-            z-index: 10;
-        }
-
-        .map-zone h3 { font-size: 1.2rem; color: var(--red-end); margin-bottom: 5px; }
-        .map-zone span { font-size: 0.9rem; color: #666; }
-        .map-zone .cn-text { font-size: 1.5rem; color: rgba(179, 0, 0, 0.1); position: absolute; }
-
-        .palace { grid-column: 2; grid-row: 1; background: #fff9e6; border-color: var(--gold-accent); }
-        .east-zone { grid-column: 3; grid-row: 2; }
-        .west-zone { grid-column: 1; grid-row: 2; }
-        .market { grid-column: 2; grid-row: 3; }
-        .river { grid-column: 1 / span 3; grid-row: 2; height: 20px; background: #e0f0ff; align-self: center; border: none; margin: -10px 0; z-index: 0;}
-
-        /* Grid For Info */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            border-top: 4px solid var(--red-start);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--red-end);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card h3 span { color: #999; font-weight: 300; font-size: 1rem; }
-        .card ul { list-style: none; padding-left: 0; }
-        .card ul li {
-            margin-bottom: 12px;
-            padding-left: 20px;
+            min-height: 120px;
+            border: 1px solid var(--secondary-blue);
             position: relative;
         }
-        .card ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--red-start);
-            font-size: 1.5rem;
-            line-height: 1rem;
+
+        .map-zone small {
+            font-weight: 300;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            opacity: 0.9;
         }
 
+        .zone-palace {
+            grid-column: 2;
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--text-dark) 100%);
+            color: white;
+            border-color: var(--border-gold);
+            border-width: 2px;
+        }
+
+        .zone-scholar { grid-column: 3; grid-row: 2; background: #E8F0FE; color: var(--primary-blue); }
+        .zone-military { grid-column: 1; grid-row: 2; background: #E8F0FE; color: var(--primary-blue); }
+        .zone-center { grid-column: 2; grid-row: 2; background: white; color: var(--primary-blue); font-size: 1.2rem; }
+        .zone-commerce { grid-column: 2; grid-row: 3; background: #E8F0FE; color: var(--primary-blue); }
+        .zone-agriculture { grid-column: 1 / span 3; grid-row: 4; background: #F8F9FA; color: #555; border-style: dashed; margin-top: 10px;}
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            background-color: var(--text-dark);
-            color: white;
-            margin-top: 50px;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            background: linear-gradient(to right, #000000, var(--secondary-blue), #000000);
+            color: var(--bg-white);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h1 span.cn { display: block; margin: 10px 0 0 0; }
-            .content-box { padding: 25px; }
-            .map-container { max-width: 100%; gap: 5px; }
-            .map-zone h3 { font-size: 1rem; }
-            .map-zone span { font-size: 0.8rem; }
+            header h1 { font-size: 2.2rem; }
+            .city-map { grid-template-columns: 1fr; }
+            .zone-palace { grid-column: 1; }
+            .zone-scholar { grid-column: 1; grid-row: auto; }
+            .zone-military { grid-column: 1; grid-row: auto; }
+            .zone-center { grid-column: 1; grid-row: auto; }
+            .zone-commerce { grid-column: 1; grid-row: auto; }
+            .zone-agriculture { grid-column: 1; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>นครจันทราแดนน้ำเงิน <span class="cn">蓝月城</span></h1>
-        <p>นครแห่งความร่มเย็น ภายใต้ร่มพระบารมีแห่งกษัตริย์ผู้ทรงธรรม</p>
-        <div class="hashtag">#นครจันทราน้ำเงินBCU</div>
+        <div class="chinese-char">蓝月城</div>
+        <h1 class="gradient-text">นครจันทราแดนน้ำเงิน</h1>
+        <h2>ดินแดนแห่งความสงบร่มเย็น ภายใต้แสงจันทร์นิรันดร์</h2>
+        <div class="hashtag gradient-text">#นครจันทราน้ำเงินBCU</div>
     </header>
 
     <div class="container">
         
-        <!-- ส่วนที่ 1: ประวัติและสภาพแวดล้อม -->
-        <h2 class="section-title gradient-text">ปฐมบทแห่งนคร (历史与环境)</h2>
-        <div class="content-box">
-            <p>ณ ดินแดนที่สายน้ำบรรจบกับขุนเขาอันไพศาล มีนครหนึ่งนามว่า <b>"จันทราแดนน้ำเงิน"</b> (蓝月城 - หลานเยว่เฉิง) ตั้งตระหง่านอย่างสงบเงียบ นครแห่งนี้มิได้พึ่งพามนตราหรือปาฏิหาริย์ใด หากแต่เจริญรุ่งเรืองด้วยหยาดเหงื่อและสติปัญญาของปุถุชน ภูมิประเทศถูกโอบล้อมด้วยปราการหินผาธรรมชาติ มีแม่น้ำสายกว้างนาม <i>"ธาราจันทรา"</i> ไหลทอดผ่าน</p>
-            <p>ยามราตรีมาเยือน เมื่อเงาจันทร์ทอดตัวลงบนผืนน้ำ เกลียวคลื่นจะสะท้อนประกายสีน้ำเงินเรืองรองดุจอัญมณีล้ำค่า อันเป็นที่มาแห่งนามนคร ฤดูกาลทั้งสี่ผันเปลี่ยนอย่างสมดุล ดินดำน้ำชุ่ม พสกนิกรล้วนมีชีวิตความเป็นอยู่ที่เรียบง่ายและเปี่ยมสุข</p>
-        </div>
+        <!-- ประวัติความเป็นมา -->
+        <h2 class="section-title gradient-text">ปฐมบทแห่งนคร (历史背景)</h2>
+        <p>
+            ณ สุดขอบหล้าที่เทือกเขาโอบล้อม มีทะเลสาบกว้างใหญ่ประกายสีครามเข้มดุจอัญมณี ทุกคราที่ยามราตรีมาเยือน แสงจันทร์จะตกกระทบผืนน้ำสะท้อนเป็นรัศมีสีน้ำเงินเรืองรอง อันเป็นที่มาแห่งนาม <strong>"นครจันทราแดนน้ำเงิน" (蓝月城 - หลานเยว่เฉิง)</strong> 
+        </p>
+        <p>
+            นครแห่งนี้มิใช่ดินแดนของเทพเซียน หรือสถานที่บำเพ็ญตบะที่มีอิทธิฤทธิ์ปาฏิหาริย์ หากแต่เป็นเมืองของมนุษย์ปุถุชนที่ดำรงชีวิตด้วยความเรียบง่ายและยึดมั่นในวิถีแห่งธรรม ราษฎรต่างพึ่งพาอาศัยกันภายใต้พระบารมีของ <strong>"อ๋องแห่งจันทรา" (月王 - เยว่อ๋อง)</strong> ผู้ปกครองด้วยความเมตตาและเที่ยงธรรม นครแห่งนี้ปราศจากไฟสงครามมานานนับศตวรรษ เป็นดั่งแดนสุขาวดีบนโลกมนุษย์ที่ผู้คนจากทั่วสารทิศต่างใฝ่ฝันจะมาเยือน
+        </p>
 
-        <!-- ส่วนที่ 2: การปกครองและหน้าที่ราชการ -->
-        <h2 class="section-title gradient-text">ระเบียบการปกครอง (行政与官职)</h2>
-        <div class="info-grid" style="margin-bottom: 40px;">
-            <div class="card">
-                <h3>การปกครอง <span>行政</span></h3>
-                <p>นครจันทราแดนน้ำเงินปกครองโดยกษัตริย์ ทรงพระนามว่า <b>"อ๋องแห่งหลานเยว่"</b> พระองค์ทรงตั้งมั่นอยู่ในทศพิธราชธรรม ไม่โปรดการทำศึกสงคราม ทรงบริหารแผ่นดินผ่าน <i>กรมทั้งหก</i> อันได้แก่ กรมขุนนาง, กรมคลัง, กรมพิธีการ, กรมกลาโหม, กรมอาญา, และกรมโยธาธิการ ทุกข้อราชการมุ่งเน้นความผาสุกของราษฎรเป็นที่ตั้ง</p>
-            </div>
-            <div class="card">
-                <h3>หน้าที่ราชการหลัก <span>主要官职</span></h3>
-                <ul>
-                    <li><b>ผู้ตรวจการนคร (御史):</b> เป็นหูเป็นตาแทนองค์กษัตริย์ ดูแลความยุติธรรมในชุมชน</li>
-                    <li><b>อาลักษณ์ (史官):</b> ผู้บันทึกประวัติศาสตร์ บัญชีประชากร และกฎหมายเมือง</li>
-                    <li><b>ทหารยามเมือง (城管):</b> รักษาความปลอดภัยตามประตูเมืองและลาดตระเวนยามวิกาล</li>
-                    <li><b>กองโยธา (工部官员):</b> ดูแลเส้นทางน้ำ คันกั้นน้ำ และกำแพงเมือง</li>
-                </ul>
-            </div>
-        </div>
+        <!-- สภาพแวดล้อม -->
+        <h2 class="section-title gradient-text">ทัศนียภาพและภูมิประเทศ (自然风光)</h2>
+        <p>
+            ภูมิประเทศของนครจันทราแดนน้ำเงินล้อมรอบด้วยปราการธรรมชาติ ทิศเหนือพิงภูเขาผาหินสลับซับซ้อน ทิศใต้เปิดรับลมจากทะเลสาบพันหลี่ ภายในเมืองร่มรื่นด้วยป่าไผ่สีครามและต้นอู๋ถง (梧桐) ที่จะผลิดอกสีขาวบริสุทธิ์ในช่วงวสันตฤดู ถนนหนทางปูด้วยหินสีเทาเข้มตัดเว้าอย่างประณีต สองข้างทางมีโคมไฟกระดาษสาสีน้ำเงินแขวนประดับ เมื่อจุดในยามค่ำคืน นครทั้งปวงจะถูกอาบด้วยแสงสีครามนวลตา ราวกับเดินอยู่ในความฝัน
+        </p>
 
-        <!-- ส่วนที่ 3: ผังเมือง (CSS Map) -->
-        <h2 class="section-title gradient-text">ผังเมืองโบราณ (城市规划)</h2>
-        <div class="content-box" style="background: transparent; box-shadow: none; border: none; padding: 0;">
-            <p style="text-align: center; text-indent: 0;">นครถูกออกแบบตามหลักฮวงจุ้ยโบราณ เป็นรูปสี่เหลี่ยมจัตุรัส หันหน้าทิศทักษิณเพื่อรับแสงตะวัน</p>
-            
-            <div class="map-container">
-                <!-- Row 1 -->
-                <div></div>
-                <div class="map-zone palace">
-                    <div class="cn-text">皇宫</div>
-                    <h3 style="z-index: 1;">วังหลวง</h3>
-                    <span style="z-index: 1;">เขตหวงห้าม</span>
-                </div>
-                <div></div>
-
-                <!-- Row 2 -->
-                <div class="map-zone west-zone">
-                    <div class="cn-text">工匠</div>
-                    <h3 style="z-index: 1;">ทิศประจิม</h3>
-                    <span style="z-index: 1;">ช่างฝีมือ/เกษตร</span>
-                </div>
-                <!-- Center point / River simulation -->
-                <div class="map-zone" style="background: #e0f0ff; border-color: #add8e6;">
-                    <h3 style="color: #0055a4; z-index: 1;">ธาราจันทรา</h3>
-                    <span style="z-index: 1;">(月川)</span>
-                </div>
-                <div class="map-zone east-zone">
-                    <div class="cn-text">官员</div>
-                    <h3 style="z-index: 1;">ทิศบูรพา</h3>
-                    <span style="z-index: 1;">จวนขุนนาง/ปราชญ์</span>
-                </div>
-
-                <!-- Row 3 -->
-                <div></div>
-                <div class="map-zone market">
-                    <div class="cn-text">商业</div>
-                    <h3 style="z-index: 1;">ทิศทักษิณ</h3>
-                    <span style="z-index: 1;">ตลาดและย่านการค้า</span>
-                </div>
-                <div></div>
-            </div>
-        </div>
-
-        <!-- ส่วนที่ 4: อาชีพหลัก -->
-        <h2 class="section-title gradient-text">วิถีชนและสัมมาชีพ (职业与生活)</h2>
+        <!-- การปกครองและหน้าที่ราชการ -->
+        <h2 class="section-title gradient-text">ระบอบการปกครองและขุนนาง (政治与官职)</h2>
+        <p>
+            การปกครองในนครจันทราแดนน้ำเงิน ยึดหลัก "ฟ้าดินเป็นพยาน ราษฎรเป็นดั่งบุตรธิดา" อำนาจสูงสุดอยู่ที่ <strong>เยว่อ๋อง (กษัตริย์)</strong> แต่การบริหารราชการแผ่นดินจะแบ่งออกเป็นกรมกองต่างๆ อย่างเป็นระบบระเบียบ เพื่อดูแลทุกข์สุขของประชาราษฎร์อย่างทั่วถึง
+        </p>
+        
         <div class="info-grid">
-            <div class="card">
-                <h3>ช่างทอผ้าไหม <span>丝绸织工</span></h3>
-                <p>พรรณรายแห่งเส้นไหม "ลายน้ำไหล" ของนครหลานเยว่เป็นที่เลื่องลือทั่วยุทธภพ สตรีในชุมชนทิศประจิมสืบทอดภูมิปัญญานี้จากรุ่นสู่รุ่น ถักทอเรื่องราวของสายน้ำลงบนผืนผ้า</p>
+            <div class="info-card">
+                <h3>สำนักตรวจการจันทรา (月鉴司)</h3>
+                <p>มีหน้าที่ดูแลความสงบเรียบร้อยและพิพากษาคดีความ ขุนนางในสำนักนี้คือ "ผู้ตรวจการ" ที่ต้องมีใจซื่อมือสะอาด คอยเดินตรวจตราเมืองและรับเรื่องราวร้องทุกข์จากราษฎร</p>
             </div>
-            <div class="card">
-                <h3>ช่างปั้นกระเบื้องเคลือบ <span>陶瓷工匠</span></h3>
-                <p>เครื่องเคลือบสีน้ำเงิน (青花瓷) ที่ทำจากดินเผาคุณภาพสูงและน้ำจากธาราจันทรา มักถูกส่งเป็นเครื่องบรรณาการแก่วังหลวงและส่งออกไปค้าขายยังต่างแดน</p>
+            <div class="info-card">
+                <h3>กรมพระคลังคราม (蓝库部)</h3>
+                <p>ดูแลเรื่องภาษีอากร การค้าขายระหว่างแคว้น และการจัดสรรเสบียง ขุนนางกรมนี้มักสวมชุดลายคลื่นน้ำเงิน เป็นผู้คำนวณและแจกจ่ายทรัพยากรอย่างเป็นธรรม</p>
             </div>
-            <div class="card">
-                <h3>ชาวไร่ชาและเกษตรกร <span>茶农与农民</span></h3>
-                <p>บนเนินเขารอบนอกเมืองเต็มไปด้วยไร่ชา "เกล็ดหิมะ" ที่ให้กลิ่นหอมกรุ่นยามชงด้วยน้ำพุร้อนธรรมชาติ ส่วนที่ราบลุ่มแม่น้ำใช้ทำนาปลูกข้าวเลี้ยงดูผู้คนทั้งนคร</p>
+            <div class="info-card">
+                <h3>กององครักษ์เสื้อเงา (影卫营)</h3>
+                <p>ทหารรักษาพระนครและพิทักษ์ชายแดน แม้นครจะสงบสุข แต่กองทัพก็มิเคยละทิ้งการฝึกซ้อม เชี่ยวชาญการต่อสู้ด้วยกระบี่และการจัดค่ายกลป้องกันเมือง</p>
             </div>
-            <div class="card">
-                <h3>พ่อค้าวาณิช <span>商人</span></h3>
-                <p>ย่านทิศใต้ของเมืองไม่เคยหลับใหล พ่อค้าเร่จากทั่วสารทิศเดินทางมาแลกเปลี่ยนสินค้า เกิดเป็นเส้นทางการค้าสายแพรพรรณและเครื่องเทศที่มั่งคั่ง</p>
+            <div class="info-card">
+                <h3>หอโหรหลวงและปราชญ์ (天星阁)</h3>
+                <p>แหล่งรวมนักปราชญ์และโหราจารย์ มีหน้าที่คำนวณฤดูกาลเพาะปลูก สังเกตปรากฏการณ์บนท้องฟ้า และบันทึกพงศาวดารของนคร</p>
+            </div>
+        </div>
+
+        <!-- วิถีชีวิตและอาชีพ -->
+        <h2 class="section-title gradient-text">วิถีชีวิตและสัมมาอาชีพ (民生与百业)</h2>
+        <p>ราษฎรในนครล้วนมีฝีมือประณีตและภูมิปัญญาที่สืบทอดกันมาแต่โบราณกาล อาชีพที่เจริญรุ่งเรืองและสร้างชื่อเสียงให้กับนครจันทราแดนน้ำเงิน ได้แก่:</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>ผู้ทอผ้าแพรจันทรา (织月绸者)</h3>
+                <p>สตรีในเมืองนิยมปลูกหม่อนเลี้ยงไหม พวกนางทอผ้าแพรที่มีความเบาบางแต่นุ่มนวล เมื่อต้องแสงจันทร์จะเหลือบเงางาม อาชีพนี้ถือเป็นสินค้าส่งออกอันดับหนึ่ง</p>
+            </div>
+            <div class="info-card">
+                <h3>ชาวประมงไข่มุกราตรี (夜珠渔夫)</h3>
+                <p>ด้วยความอุดมสมบูรณ์ของทะเลสาบ นอกจากการจับปลาหายากแล้ว ชาวประมงยังดำน้ำลึกเพื่อเก็บ "ไข่มุกราตรี" ซึ่งมีสีน้ำเงินเข้ม เป็นที่ต้องการของชนชั้นสูง</p>
+            </div>
+            <div class="info-card">
+                <h3>พ่อค้าชาเหมยน้ำเงิน (蓝梅茶商)</h3>
+                <p>บนเนินเขาทางตะวันออก ปลูกชาสายพันธุ์พิเศษที่ใบชามีสีอมฟ้า เมื่อชงจะมีกลิ่นหอมของดอกเหมย พ่อค้าชาในเมืองนี้ร่ำรวยและมีอิทธิพลในการค้าข้ามแคว้น</p>
+            </div>
+            <div class="info-card">
+                <h3>ช่างสลักหยก (玉雕师)</h3>
+                <p>หยกดำและหยกน้ำเงินที่ขุดพบในเหมืองทางเหนือ ถูกนำมาแกะสลักเป็นเครื่องราง ปิ่นปักผม และป้ายหยกประจำตระกูล ช่างสลักหยกที่นี่ถือเป็นศิลปินชั้นครู</p>
+            </div>
+        </div>
+
+        <!-- ผังเมือง -->
+        <h2 class="section-title gradient-text">ภูมิสถาปัตย์และผังเมือง (城池布局)</h2>
+        <p>
+            ผังเมืองถูกออกแบบตามหลักสมดุลแห่งหยินหยาง (阴阳) วางตัวเป็นแนวสมมาตร สี่เหลี่ยมจัตุรัสมีกำแพงเมืองสูงตระหง่านล้อมรอบสี่ทิศ ประตูเมืองทั้งสี่ถูกสลักลวดลายสัตว์มงคล จัตุรัสใจกลางเมืองเป็นศูนย์รวมจิตใจและเส้นทางหลักที่เชื่อมต่อทุกสารทิศ
+        </p>
+
+        <div class="city-map-container">
+            <div class="city-map">
+                <!-- แถว 1: พระราชวังอยู่ทิศเหนือตรงกลาง -->
+                <div></div>
+                <div class="map-zone zone-palace">
+                    พระราชวังจันทรา (ทิศเหนือ)
+                    <small>ที่ประทับเยว่อ๋อง และท้องพระโรง</small>
+                </div>
+                <div></div>
+
+                <!-- แถว 2: ตะวันตก ศูนย์กลาง ตะวันออก -->
+                <div class="map-zone zone-military">
+                    ค่ายทหารตะวันตก
+                    <small>ลานฝึกซ้อมและคลังแสง</small>
+                </div>
+                <div class="map-zone zone-center">
+                    จัตุรัสกลางนคร
+                    <small>หอนาฬิกาน้ำและลานประกาศ</small>
+                </div>
+                <div class="map-zone zone-scholar">
+                    หอดาราตะวันออก
+                    <small>ที่พำนักบัณฑิตและสถานศึกษา</small>
+                </div>
+
+                <!-- แถว 3: การค้าทิศใต้ -->
+                <div></div>
+                <div class="map-zone zone-commerce">
+                    ย่านการค้าทิศใต้
+                    <small>ตลาดแพรพรรณ โรงเตี๊ยม ท่าเรือ</small>
+                </div>
+                <div></div>
+
+                <!-- แถว 4: เกษตรกรรมรอบนอก -->
+                <div class="map-zone zone-agriculture">
+                    เขตเกษตรกรรมและทะเลสาบรอบนอก (外城)
+                    <small>ไร่ชา สวนหม่อน และหมู่บ้านประมง</small>
+                </div>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>© จารึกประวัติศาสตร์แห่ง นครจันทราแดนน้ำเงิน (蓝月城) | #นครจันทราน้ำเงินBCU</p>
+        <p>สร้างสรรค์โดยศิลปะแห่งรหัส (Code) | ข้อมูลประวัติศาสตร์จำลอง 蓝月城</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">#นครจันทราน้ำเงินBCU</p>
     </footer>
 
 </body>
